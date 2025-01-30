@@ -1,0 +1,26 @@
+[package]
+name = "hydra-benchmarks"
+version = "0.1.0"
+description = "Created with Anchor"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "hydra_benchmarks"
+
+[features]
+no-entrypoint = []
+no-idl = []
+cpi = ["no-entrypoint"]
+localnet = []
+devnet = []
+testnet = []
+mainnet = []
+
+default = ["localnet"]
+
+[dependencies]
+anchor-lang = "0.25.0"
+# TODO: remove spl-associated-token-account when anchor 0.25.1 is released
+spl-associated-token-account = "1.0.5"
+hydra-math = { path = "../../modules/hydra-math", features = ["no-entrypoint"] }

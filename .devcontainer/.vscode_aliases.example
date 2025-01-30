@@ -1,0 +1,12 @@
+# Rename to `.vscode_aliases` and add you favourite aliases here
+
+# Here are some to get you going
+WS_ROOT=/workspaces/monorepo
+alias ch="cd $WS_ROOT"
+alias cha="cd $WS_ROOT/app"
+alias chs="cd $WS_ROOT/modules/sdk"
+alias chp="cd $WS_ROOT/modules/core"
+alias chr="cd $WS_ROOT/modules/services"
+alias chc="cd $WS_ROOT/modules/cli"
+alias cht="cd $WS_ROOT/modules/tests"
+alias chv="cd $WS_ROOT/modules/val"

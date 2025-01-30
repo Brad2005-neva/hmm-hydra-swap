@@ -1,0 +1,57 @@
+{
+  "localnet": {
+    "programIds": {
+      "hydraBenchmarks": "2kYXEXWi99JG3yAWeqeDfa5vjEkK1Wup2oTo7pZnuGyh",
+      "hydraFaucet": "6UHCxu3LhszCSb2haeb8qWqo1MoAwowHDv61UvwJkDXp",
+      "hydraLiquidityPools": "HXSFUHtZxxj2MvSfpoqKWKeSKCeER3Br6rpbe3Qr8NS9"
+    },
+    "users": {
+      "treasury": "god6xgrG3ZnkRTPtb7J3nDs1k8P7GGo43QZcN4ZLf5D",
+      "trader": "usrQpqgkvUjPgAVnGm8Dk3HmX3qXr1w4gLJMazLNyiW"
+    }
+  },
+  "mainnet-beta": {
+    "programIds": {
+      "hydraBenchmarks": "",
+      "hydraFaucet": "",
+      "hydraLiquidityPools": "ABDmTojnE5oeRU1riKtPm5Pbx1itAA92t2TAvNyH7ecc"
+    },
+    "users": {
+      "treasury": "",
+      "trader": ""
+    }
+  },
+  "testnet": {
+    "programIds": {
+      "hydraBenchmarks": "2kYXEXWi99JG3yAWeqeDfa5vjEkK1Wup2oTo7pZnuGyh",
+      "hydraFaucet": "6UHCxu3LhszCSb2haeb8qWqo1MoAwowHDv61UvwJkDXp",
+      "hydraLiquidityPools": "HXSFUHtZxxj2MvSfpoqKWKeSKCeER3Br6rpbe3Qr8NS9"
+    },
+    "users": {
+      "treasury": "",
+      "trader": ""
+    }
+  },
+  "devnet": {
+    "programIds": {
+      "hydraBenchmarks": "2kYXEXWi99JG3yAWeqeDfa5vjEkK1Wup2oTo7pZnuGyh",
+      "hydraFaucet": "6UHCxu3LhszCSb2haeb8qWqo1MoAwowHDv61UvwJkDXp",
+      "hydraLiquidityPools": "HXSFUHtZxxj2MvSfpoqKWKeSKCeER3Br6rpbe3Qr8NS9"
+    },
+    "users": {
+      "treasury": "5tZbDCfLmDuZmKT2mhMwJNi2W52zZb3aEzt7sNjLYuva",
+      "trader": "Enhc9hbhGUuWRURiH2Y4AtWU2TZ6cTt3A8UJBPGtLsfp"
+    }
+  },
+  "fake-mainnet": {
+    "programIds": {
+      "hydraBenchmarks": "",
+      "hydraFaucet": "",
+      "hydraLiquidityPools": "GXHTJcNmx8fckZJoeYj6kXWawU2VGdd3oWCHeLBREqKa"
+    },
+    "users": {
+      "treasury": "",
+      "trader": ""
+    }
+  }
+}

@@ -1,0 +1,138 @@
+[
+  {
+    "testId": 1,
+    "description": "swap xy condition 1 AMM when c eq 0 (compensation param not set)",
+    "x0": "77794362749127900",
+    "xScale": "6",
+    "y0": "68170250944002900",
+    "yScale": "9",
+    "c": "0",
+    "i": "42000000",
+    "iScale": "8",
+    "amount": "5541020795",
+    "xy": true,
+    "expected": {
+      "deltaX": "5541020795",
+      "deltaY": "4855528573"
+    }
+  },
+  {
+    "testId": 2,
+    "description": "swap xy condition 1 AMM when i eq 0 (missing oracle)",
+    "x0": "77794362749127900",
+    "xScale": "6",
+    "y0": "68170250944002900",
+    "yScale": "9",
+    "c": "100",
+    "i": "0",
+    "iScale": "8",
+    "amount": "5541020795",
+    "xy": true,
+    "expected": {
+      "deltaX": "5541020795",
+      "deltaY": "4855528573"
+    }
+  },
+  {
+    "testId": 3,
+    "description": "swap xy condition 1 AMM when x0 >= xi",
+    "x0": "77794362749127900",
+    "xScale": "6",
+    "y0": "68170250944002900",
+    "yScale": "9",
+    "c": "100",
+    "i": "42000000",
+    "iScale": "8",
+    "amount": "5541020795",
+    "xy": true,
+    "expected": {
+      "deltaX": "5541020795",
+      "deltaY": "4855528573"
+    }
+  },
+  {
+    "testId": 4,
+    "description": "swap xy condition 1 AMM when x0 >= xi",
+    "x0": "777127900",
+    "xScale": "6",
+    "y0": "68170250944002900",
+    "yScale": "9",
+    "c": "100",
+    "i": "42000000",
+    "iScale": "8",
+    "amount": "5541020795",
+    "xy": true,
+    "expected": {
+      "deltaX": "5541020795",
+      "deltaY": "312587693932866"
+    }
+  },
+  {
+    "testId": 5,
+    "description": "swap xy condition 3 HMM when x_new > xi",
+    "x0": "777127900",
+    "xScale": "6",
+    "y0": "68170250944002900",
+    "yScale": "9",
+    "c": "100",
+    "i": "42000000",
+    "iScale": "8",
+    "amount": "555541020795",
+    "xy": true,
+    "expected": {
+      "deltaX": "555541020795",
+      "deltaY": "967532511693916"
+    }
+  },
+  {
+    "testId": 6,
+    "description": "swap yx condition 1 HMM when y0 >= yi",
+    "x0": "565288100127926",
+    "xScale": "6",
+    "y0": "853100202827361589",
+    "yScale": "9",
+    "c": "100",
+    "i": "42000000",
+    "iScale": "8",
+    "amount": "541172676189",
+    "xy": false,
+    "expected": {
+      "deltaX": "358595952",
+      "deltaY": "541172676189"
+    }
+  },
+  {
+    "testId": 7,
+    "description": "swap yx condition 2 HMM when y_new <= yi",
+    "x0": "565288100127926",
+    "xScale": "6",
+    "y0": "853100827361589",
+    "yScale": "9",
+    "c": "100",
+    "i": "42000000",
+    "iScale": "8",
+    "amount": "541172676189",
+    "xy": false,
+    "expected": {
+      "deltaX": "21488605729",
+      "deltaY": "541172676189"
+    }
+  },
+  {
+    "testId": 8,
+    "description": "swap yx condition 3 HMM when y_new > yi",
+    "x0": "565288100127926",
+    "xScale": "6",
+    "y0": "8531827361589",
+    "yScale": "9",
+    "c": "100",
+    "i": "42000000",
+    "iScale": "8",
+    "amount": "5555541172676189",
+    "xy": false,
+    "expected": {
+      "deltaX": "19861429355503",
+      "deltaY": "5555541172676189"
+    }
+  }
+]

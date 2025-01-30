@@ -1,0 +1,65 @@
+[
+  {
+    "testId": 1,
+    "description": "add liquidity first time",
+    "xReserve": "0",
+    "xScale": "6",
+    "yReserve": "0",
+    "yScale": "9",
+    "liquidityTotal": "0",
+    "add": {
+      "xAmount": "100000000",
+      "yAmount": "3000000000000"
+    },
+    "remove": {
+      "liquidity": "0"
+    },
+    "expected": {
+      "xAmount": "100000000",
+      "yAmount": "3000000000000",
+      "liquidity": "547721557"
+    }
+  },
+  {
+    "testId": 2,
+    "description": "add liquidity second time",
+    "xReserve": "100000000",
+    "xScale": "6",
+    "yReserve": "3000000000000",
+    "yScale": "9",
+    "liquidityTotal": "547722556505",
+    "add": {
+      "xAmount": "50000000",
+      "yAmount": "1000000000000"
+    },
+    "remove": {
+      "liquidity": "0"
+    },
+    "expected": {
+      "xAmount": "33333333",
+      "yAmount": "999999999999",
+      "liquidity": "182574185501"
+    }
+  },
+  {
+    "testId": 3,
+    "description": "remove liquidity",
+    "xReserve": "133333333",
+    "xScale": "6",
+    "yReserve": "3999999999999",
+    "yScale": "9",
+    "liquidityTotal": "730296742006",
+    "add": {
+      "xAmount": "0",
+      "yAmount": "0"
+    },
+    "remove": {
+      "liquidity": "730296742006"
+    },
+    "expected": {
+      "xAmount": "133333333",
+      "yAmount": "3999999999999",
+      "liquidity": "730296742006"
+    }
+  }
+]

@@ -1,0 +1,17 @@
+name: TS Security
+
+on:
+  pull_request:
+
+jobs:
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Trojan Source Detector
+        uses: haveyoudebuggedit/trojansourcedetector@v1

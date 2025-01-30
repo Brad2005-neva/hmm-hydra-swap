@@ -1,0 +1,13 @@
+{
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "**/*.rs",
+    "**/*.json",
+    "**/*.toml",
+    "**/*.yaml"
+  ],
+  "exclude": [".git/**", ".github/scripts/*.sh", "*/target/**"],
+  "detect_unicode": false,
+  "detect_bidi": true
+}

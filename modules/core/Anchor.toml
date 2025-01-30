@@ -1,0 +1,12 @@
+[registry]
+url = "https://anchor.projectserum.com"
+
+[provider]
+cluster = "localnet"
+wallet = "~/.config/solana/id.json"
+
+[test]
+startup_wait = 90000
+
+[test.validator]
+url = "https://api.mainnet-beta.solana.com"

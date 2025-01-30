@@ -1,0 +1,8 @@
+name: "Ensure test treasury wallet is set"
+runs:
+  using: "composite"
+  steps:
+    - name: Ensure test treasury wallet is set
+      id: ensure-wallet-treasury
+      run: yarn wallet ./keys/users/god6xgrG3ZnkRTPtb7J3nDs1k8P7GGo43QZcN4ZLf5D.json
+      shell: bash

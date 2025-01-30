@@ -1,0 +1,65 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.241.1/containers/rust
+{
+	"name": "Hydraswap Devcontainer",
+	"image": "ghcr.io/hydraswap-io/hydraswap-dev:0.0.40",
+	"runArgs": [
+		"--net",
+		"host",
+		"-e",
+		"DISPLAY=${env:DISPLAY}"
+	],
+	"forwardPorts": [
+		3000, 
+		443, 
+		80
+	],
+	// Configure tool-specific properties.
+	"customizations": {
+		// Configure properties specific to VS Code.
+		"vscode": {
+			// Set *default* container specific settings.json values on container create.
+			"settings": {
+				"lldb.executable": "/usr/bin/lldb",
+				// VS Code don't watch files under ./target
+				"files.watcherExclude": {
+					"**/target/**": true,
+					"**/node_modules/**": true
+				},
+				"rust-analyzer.linkedProjects": [
+					"/workspaces/monorepo/modules/core/Cargo.toml"
+				],
+				"rust-analyzer.checkOnSave.command": "clippy",
+				"terminal.integrated.defaultProfile.linux": "bash",
+				"terminal.integrated.profiles.linux": {
+					"bash": {
+						"path": "/bin/bash"
+					}
+				}
+			},
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"vadimcn.vscode-lldb",
+				"mutantdino.resourcemonitor",
+				"rust-lang.rust-analyzer",
+				"tamasfe.even-better-toml",
+				"serayuzgur.crates",
+				"esbenp.prettier-vscode",
+				"ms-vscode.vscode-typescript-next",
+				"tomoyukim.vscode-mermaid-editor",
+				"dbaeumer.vscode-eslint"
+			]
+		}
+	},
+	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+	"remoteUser": "vscode",
+	"mounts": [
+		// TODO: We will likely want to add more default config from the host user here and 
+		// remove some of the stuff built into the image  
+		"type=bind,source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh",
+		"type=bind,source=${localEnv:HOME}/.config/git/config,target=/home/vscode/.config/git/config",
+		"type=bind,source=${localWorkspaceFolder}/.devcontainer/.vscode_aliases,target=/home/vscode/.bash_aliases",
+		"type=bind,source=/tmp/.X11-unix,target=/tmp/.X11-unix",
+		"type=bind,source=/var/run/docker.sock,target=/var/run/docker.sock"
+	]
+}

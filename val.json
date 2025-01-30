@@ -1,0 +1,43 @@
+{
+  "cwd": ".",
+  "accounts": [
+    {
+      "address": "HovQMDrbAgAYPCmHVSrezcSmkMtXSSUsLDFANExrZh2J",
+      "location": "./modules/tests/protocol/fixtures/btc_usd.price.json"
+    },
+    {
+      "address": "3m1y5h2uv7EQL3KaJZehvAJa4yDNvgc5yAdL9KPMKwvk",
+      "location": "./modules/tests/protocol/fixtures/btc_usd.product.json"
+    },
+    {
+      "address": "JBu1AL4obBcCMqKBBxhpWCNUt136ijcuMZLFvTP7iWdB",
+      "location": "./modules/tests/protocol/fixtures/eth_usd.price.json"
+    },
+    {
+      "address": "EMkxjGC1CQ7JLiutDbfYb7UKb3zm9SJcUmr1YicBsdpZ",
+      "location": "./modules/tests/protocol/fixtures/eth_usd.product.json"
+    },
+    {
+      "address": "CauGFf9AY9kJm9cwBDMBW5jfGrQK5p6tG7WULbvvKSfG",
+      "location": "./modules/tests/protocol/fixtures/sol_usd.price.json"
+    },
+    {
+      "address": "Ay8kmq7KDUHREdyjDWmvwvcyujRmCsGd9z7TmXV1WCyM",
+      "location": "./modules/tests/protocol/fixtures/sol_usd.product.json"
+    },
+    {
+      "address": "Gnt27xtC473ZT2Mw5u8wZ68Z3gULkSTb5DuxJy7eJotD",
+      "location": "./modules/tests/protocol/fixtures/usdc_usd.price.json"
+    },
+    {
+      "address": "8GWTTbNiXdmyZREXbjsZBmCRuzdPrW55dnZGDkTRjWvb",
+      "location": "./modules/tests/protocol/fixtures/usdc_usd.product.json"
+    }
+  ],
+  "bpf-programs": [
+    {
+      "address": "./modules/core/target/deploy/hydra_benchmarks-keypair.json",
+      "location": "./modules/core/target/deploy/hydra_benchmarks.so"
+    }
+  ]
+}

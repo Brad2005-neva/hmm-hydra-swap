@@ -1,0 +1,27 @@
+{
+  "name": "@hydraprotocol/wasm-loader",
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "build-test": "cd wasm-test && yarn build",
+    "test": "yarn build-test && jest"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "27.4.0",
+    "jest": "27.5.1",
+    "ts-jest": "27.1.3",
+    "typescript": "4.8.4",
+    "@hydraprotocol/wasm-test": "*"
+  },
+  "dependencies": {
+    "@hydraprotocol/config": "*",
+    "@hydraprotocol/math": "*",
+    "typescript": "4.8.4"
+  }
+}

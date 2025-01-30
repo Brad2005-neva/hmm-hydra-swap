@@ -1,0 +1,135 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"]
+    },
+    "docs": {
+      "dependsOn": ["^build"],
+      "cache": false
+    },
+    "@hydraprotocol/sdk#docs": {
+      "dependsOn": ["docs#docs", "^build"],
+      "cache": false
+    },
+    "app#docs": {
+      "dependsOn": ["docs#docs", "^build"],
+      "cache": false
+    },
+    "app#build": {
+      "dependsOn": ["^build"],
+      "inputs": [],
+      "outputs": ["build/**", "src/gch.ts"]
+    },
+    "@hydraprotocol/core#deploy": {
+      "dependsOn": ["@hydraprotocol/core#build"]
+    },
+    "@hydraprotocol/services#build": {
+      "dependsOn": ["^build"],
+      "inputs": [],
+      "outputs": ["dist/**", "**/*.typegen.ts"]
+    },
+    "@hydraprotocol/sdk#build": {
+      "dependsOn": ["^build"],
+      "inputs": [],
+      "outputs": ["dist/**", "node/**"]
+    },
+    "@hydraprotocol/idls#build": {
+      "dependsOn": ["@hydraprotocol/core#build", "^build"],
+      "inputs": [],
+      "outputs": ["codegen/**"]
+    },
+    "@hydraprotocol/core#build": {
+      "dependsOn": ["^build"],
+      "inputs": [],
+      "env": ["MAINNET", "SOLANA_HYDRA_LIQUIDITY_POOLS_PROGRAM_ID_KEY"],
+      "outputs": ["target/**"]
+    },
+    "@hydraprotocol/tests#anchor-test": {
+      "dependsOn": ["^build", "scripts#save-snapshot-anchor"],
+      "inputs": [],
+      "outputs": []
+    },
+    "scripts#migrate:devnet": {
+      "dependsOn": ["^build"]
+    },
+    "@hydraprotocol/math#build": {
+      "dependsOn": ["^build"],
+      "inputs": [],
+      "outputs": [".pkg/**"]
+    },
+    "@hydraprotocol/val#build": {
+      "dependsOn": ["^build"],
+      "inputs": [],
+      "outputs": ["dist/**"]
+    },
+    "@hydraprotocol/wasm-loader#build": {
+      "dependsOn": ["^build"],
+      "inputs": [],
+      "outputs": ["dist/**"]
+    },
+    "@hydraprotocol/wasm-test#build": {
+      "dependsOn": ["^build"],
+      "inputs": [],
+      "outputs": [".pkg/**", "target/**"]
+    },
+    "scripts#wallet": {},
+    "scripts#start": {
+      "dependsOn": ["^build", "scripts#save-snapshot-frontend"]
+    },
+    "scripts#save-snapshot-frontend": {
+      "dependsOn": [
+        "@hydraprotocol/core#build",
+        "@hydraprotocol/val#build",
+        "@hydraprotocol/sdk#build"
+      ],
+      "env": ["MAINNET", "SOLANA_HYDRA_LIQUIDITY_POOLS_PROGRAM_ID_KEY"],
+      "outputs": ["../validator-snapshots/frontend"]
+    },
+    "scripts#save-snapshot-e2e": {
+      "dependsOn": [
+        "@hydraprotocol/core#build",
+        "@hydraprotocol/val#build",
+        "@hydraprotocol/sdk#build"
+      ],
+      "env": ["MAINNET", "SOLANA_HYDRA_LIQUIDITY_POOLS_PROGRAM_ID_KEY"],
+      "outputs": ["../validator-snapshots/e2e"]
+    },
+    "scripts#save-snapshot-anchor": {
+      "dependsOn": [
+        "@hydraprotocol/core#build",
+        "@hydraprotocol/val#build",
+        "@hydraprotocol/sdk#build"
+      ],
+      "env": ["MAINNET", "SOLANA_HYDRA_LIQUIDITY_POOLS_PROGRAM_ID_KEY"],
+      "outputs": ["../validator-snapshots/anchor-fixture"]
+    },
+    "@hydraprotocol/tests#e2e": {
+      "dependsOn": ["^build"],
+      "env": ["MAINNET", "SOLANA_HYDRA_LIQUIDITY_POOLS_PROGRAM_ID_KEY"],
+      "outputs": []
+    },
+    "@hydraprotocol/tests#build": {
+      "dependsOn": ["^build"],
+      "inputs": [],
+      "outputs": ["./e2e/.extensions/**"]
+    },
+    "@hydraprotocol/jupiter#build": {
+      "dependsOn": ["^build"],
+      "inputs": []
+    },
+    "test": {
+      "dependsOn": ["^build"],
+      "outputs": []
+    },
+    "lint": {
+      "outputs": []
+    },
+    "watch": {
+      "cache": false
+    },
+    "clean": {
+      "cache": false
+    }
+  }
+}

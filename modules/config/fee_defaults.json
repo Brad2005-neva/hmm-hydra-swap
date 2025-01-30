@@ -1,0 +1,11 @@
+{
+  "feeCalculation": "Percent",
+  "feeLastUpdate": 0,
+  "feeLastPrice": 0,
+  "feeEwmaWindow": 3600,
+  "feeLastEwma": 17836758,
+  "feeLambda": 545000000000,
+  "feeVelocity": 4166666667,
+  "feeMinPct": 500000000,
+  "feeMaxPct": 20000000000
+}

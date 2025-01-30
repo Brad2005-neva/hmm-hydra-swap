@@ -1,0 +1,66 @@
+name: "Verify Deployment"
+env:
+  CACHE_ID: tc-271022-1
+  CARGO_TERM_COLOR: always
+  HOME: /root
+
+on:
+  pull_request:
+    branches:
+      - mainnet
+
+jobs:
+  verify:
+    name: Verify Deployment
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/hydraswap-io/hydraswap-ci:0.0.24
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.GHCR_READ_TOKEN }}
+
+    steps:
+      - name: Get current date for turbocache
+        id: date
+        run: echo "::set-output name=date::$(date +'%U')"
+
+      - name: Checkout
+        id: checkout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Add safe directory for github
+        # The following is required as we use git in one of our scripts (app/scripts/save-ghc.sh) and it wont work due to
+        # /__w/hydraprotocol/hydraprotocol being owned by a different user because of this: https://github.blog/2022-04-12-git-security-vulnerability-announced/
+        run: git config --global --add safe.directory /__w/hydraprotocol/hydraprotocol
+
+      - name: "Load Turbo Cache"
+        uses: actions/cache@v2
+        with:
+          key: turbocache-${{ env.CACHE_ID }}${{ steps.date.outputs.date }}-${{ github.run_id }}
+          restore-keys: turbocache-${{ env.CACHE_ID }}${{ steps.date.outputs.date }}
+          path: .turbocache
+      - name: "Investigate dirs"
+        run: mkdir -p .turbocache && ls -la && ls -la .turbocache
+
+      - name: Cache Node Modules
+        id: cache-node-modules
+        uses: actions/cache@v2
+        with:
+          path: |
+            ./node_modules
+            ./modules/*/node_modules
+            ./app/node_modules
+          key: ${{ runner.os }}-modules-${{ env.CACHE_ID }}-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install Node Dependencies
+        id: install-yarn-deps
+        run: yarn install --frozen-lockfile --ignore-scripts
+
+      - name: Verify build
+        id: verify-build
+        run: ./scripts/verify-build.sh
+        env:
+          MAINNET: true
+          SOLANA_HYDRA_LIQUIDITY_POOLS_PROGRAM_ID_KEY: ${{ secrets.SOLANA_HYDRA_LIQUIDITY_POOLS_PROGRAM_ID_KEY }}

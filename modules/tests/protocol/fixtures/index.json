@@ -1,0 +1,18 @@
+{
+  "sol_usd": {
+    "priceAccount": "CauGFf9AY9kJm9cwBDMBW5jfGrQK5p6tG7WULbvvKSfG",
+    "productAccount": "Ay8kmq7KDUHREdyjDWmvwvcyujRmCsGd9z7TmXV1WCyM"
+  },
+  "usdc_usd": {
+    "priceAccount": "Gnt27xtC473ZT2Mw5u8wZ68Z3gULkSTb5DuxJy7eJotD",
+    "productAccount": "8GWTTbNiXdmyZREXbjsZBmCRuzdPrW55dnZGDkTRjWvb"
+  },
+  "btc_usd": {
+    "priceAccount": "HovQMDrbAgAYPCmHVSrezcSmkMtXSSUsLDFANExrZh2J",
+    "productAccount": "3m1y5h2uv7EQL3KaJZehvAJa4yDNvgc5yAdL9KPMKwvk"
+  },
+  "eth_usd": {
+    "priceAccount": "JBu1AL4obBcCMqKBBxhpWCNUt136ijcuMZLFvTP7iWdB",
+    "productAccount": "EMkxjGC1CQ7JLiutDbfYb7UKb3zm9SJcUmr1YicBsdpZ"
+  }
+}

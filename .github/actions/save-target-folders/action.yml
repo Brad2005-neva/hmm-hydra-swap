@@ -1,0 +1,15 @@
+name: "Saving Target Folders"
+runs:
+  using: "composite"
+  steps:
+    - name: Saving Target Deploy Folder
+      uses: actions/upload-artifact@v3
+      with:
+        name: rust-target-deploy-${{ github.sha }}
+        path: ./modules/core/target/deploy
+
+    - name: Saving Target IDL Folder
+      uses: actions/upload-artifact@v3
+      with:
+        name: rust-target-idl-${{ github.sha }}
+        path: ./modules/core/target/idl

@@ -1,0 +1,7 @@
+{
+  "localnet": "http://127.0.0.1:8899",
+  "devnet": "https://evocative-dark-violet.solana-devnet.quiknode.pro/7c4c009d872d5402435e2e6a1e9d2ad750360702/",
+  "testnet": "https://api.testnet.solana.com",
+  "mainnet-beta": "https://white-wiser-patron.solana-mainnet.quiknode.pro/fdc97acd7918e8c8f5c29bdaa5e52f59cc69de4d/",
+  "fake-mainnet": "https://api.devnet.solana.com"
+}

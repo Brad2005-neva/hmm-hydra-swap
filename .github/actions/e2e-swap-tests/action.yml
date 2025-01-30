@@ -1,0 +1,14 @@
+name: Run e2e swap tests
+runs:
+  using: "composite"
+  steps:
+    - uses: ./.github/actions/load-built-core
+
+    - uses: ./.github/actions/ensure-test-treasure-wallet
+
+    - uses: ./.github/actions/load-built-frontend
+
+    - name: Run e2e swap tests
+      id: e2e-swap-tests
+      run: yarn e2e swap
+      shell: bash

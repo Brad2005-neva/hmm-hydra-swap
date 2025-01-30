@@ -1,0 +1,13 @@
+{
+  "name": "@hydraprotocol/core",
+  "version": "0.0.0",
+  "description": "",
+  "scripts": {
+    "test": "cargo test --release",
+    "lint": "cargo clippy -- -A clippy::unused_unit -A clippy::ptr_offset_with_cast -A clippy::assign_op_pattern -D warnings",
+    "build": "./build.sh"
+  },
+  "dependencies": {
+    "@hydraprotocol/math": "*"
+  }
+}

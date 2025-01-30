@@ -1,0 +1,14 @@
+name: Run e2e liquidity pool tests
+runs:
+  using: "composite"
+  steps:
+    - uses: ./.github/actions/load-built-core
+
+    - uses: ./.github/actions/ensure-test-treasure-wallet
+
+    - uses: ./.github/actions/load-built-frontend
+
+    - name: Run e2e liquidity pool tests
+      id: e2e-pools-tests
+      run: yarn e2e pools
+      shell: bash

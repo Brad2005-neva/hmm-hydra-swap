@@ -1,0 +1,30 @@
+[package]
+name = "hydra-liquidity-pools"
+version = "0.1.0"
+description = "Created with Anchor"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib", "lib"]
+name = "hydra_liquidity_pools"
+
+[features]
+no-entrypoint = []
+no-idl = []
+cpi = ["no-entrypoint"]
+mainnet = []
+testnet = []
+devnet = []
+localnet = []
+
+default = ["localnet"]
+
+[dependencies]
+anchor-lang = { version = "0.25.0", features = ["init-if-needed"] }
+anchor-spl = "0.25.0"
+# TODO: remove spl-associated-token-account when anchor 0.25.1 is released
+spl-associated-token-account = "1.0.5"
+hydra-math = { path = "../../modules/hydra-math" }
+num = "0.4"
+pyth-sdk-solana = "0.6.1"
+solana-security-txt = "1.0.1"

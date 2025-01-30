@@ -1,0 +1,46 @@
+name: Set up CI/CD
+inputs:
+  INSTALL_NODE_DEPS:
+    description: "Install node dependencies"
+    required: false
+    default: false
+  LINT_AND_AUDIT:
+    description: "Lint and Audit the codebase"
+    required: false
+    default: false
+  INVESTIGATE_DIRS:
+    description: "Investigate the turbo cache dirs"
+    required: false
+    default: false
+runs:
+  using: "composite"
+  steps:
+    - name: Add safe directory for github
+      # The following is required as we use git in one of our scripts (app/scripts/save-ghc.sh) and it wont work due to
+      # /__w/hydraprotocol/hydraprotocol being owned by a different user because of this: https://github.blog/2022-04-12-git-security-vulnerability-announced/
+      run: git config --global --add safe.directory /__w/hydraprotocol/hydraprotocol
+      shell: bash
+
+    - name: Get current date for turbocache
+      shell: bash
+      id: date
+      run: echo "::set-output name=date::$(date +'%U')"
+
+    - name: Turbo Cache
+      uses: actions/cache@v2
+      with:
+        key: turbocache-${{ env.CACHE_ID }}${{ steps.date.outputs.date }}-${{ github.run_id }}
+        restore-keys: turbocache-${{ env.CACHE_ID }}${{ steps.date.outputs.date }}
+        path: .turbocache
+
+    - name: "Investigate dirs"
+      run: mkdir -p .turbocache && ls -la && ls -la .turbocache
+      if: ${{ inputs.INVESTIGATE_DIRS }}
+      shell: bash
+
+    - uses: ./.github/actions/cache-node-modules
+
+    - name: Install Node Dependencies
+      id: install-yarn-deps
+      run: yarn ci:install
+      shell: bash

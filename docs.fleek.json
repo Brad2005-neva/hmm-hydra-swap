@@ -1,0 +1,14 @@
+{
+  "site": {
+    "id": "01e63565-c7b9-446f-ba43-ff4d7c31a9fb",
+    "team": "84f5be36-3c27-4842-8787-92927b962f3e",
+    "platform": "ipfs",
+    "source": "ipfs",
+    "name": "docs.hydraswap.io"
+  },
+  "build": {
+    "baseDir": "",
+    "publicDir": "docs/build",
+    "rootDir": ""
+  }
+}

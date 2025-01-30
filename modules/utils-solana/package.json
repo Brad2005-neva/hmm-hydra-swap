@@ -1,0 +1,25 @@
+{
+  "name": "@hydraprotocol/utils-solana",
+  "version": "0.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "src/index.ts",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "test": "jest --passWithNoTests",
+    "clean": "rm -rf dist"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/jest": "27.4.0",
+    "jest": "27.5.1",
+    "ts-jest": "27.1.3",
+    "typescript": "4.8.4"
+  },
+  "dependencies": {
+    "@hydraprotocol/config": "*",
+    "@hydraprotocol/sdk": "*"
+  }
+}

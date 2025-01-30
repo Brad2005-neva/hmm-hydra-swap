@@ -1,0 +1,13 @@
+name: "Save snapshot anchor-test"
+runs:
+  using: "composite"
+  steps:
+    - name: Save snapshot anchor-test
+      shell: bash
+      id: save-snapshot-anchor
+      run: yarn save-snapshot-anchor
+
+    - name: Save snapshot e2e
+      shell: bash
+      id: save-snapshot-e2e
+      run: yarn save-snapshot-e2e

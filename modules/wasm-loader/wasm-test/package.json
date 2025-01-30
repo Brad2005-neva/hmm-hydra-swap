@@ -1,0 +1,23 @@
+{
+  "name": "@hydraprotocol/wasm-test",
+  "version": "0.0.0",
+  "license": "MIT",
+  "files": [
+    "./.pkg/node/index_bg.wasm",
+    "./.pkg/node/index_bg.wasm.d.ts",
+    "./.pkg/node/index.js",
+    "./.pkg/node/index.d.ts",
+    "./.pkg/web/index_bg.wasm",
+    "./.pkg/web/index_bg.wasm.d.ts",
+    "./.pkg/web/index.js",
+    "./.pkg/web/index.d.ts"
+  ],
+  "browser": "./.pkg/web/index.js",
+  "main": "./.pkg/node/index.js",
+  "types": "./.pkg/web/index.d.ts",
+  "scripts": {
+    "watch": "cargo watch -i \".pkg/**\" -i \".turbo/**\" -s \"wasm-pack build\" --watch-when-idle",
+    "build": "./build.sh"
+  },
+  "sideEffects": false
+}

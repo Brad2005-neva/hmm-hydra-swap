@@ -1,0 +1,4 @@
+{
+  "extends": "@hydraprotocol/config/base.tsconfig.json",
+  "include": ["**/*.ts"]
+}

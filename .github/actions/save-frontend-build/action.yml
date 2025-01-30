@@ -1,0 +1,9 @@
+name: "Saving Frontend Build"
+runs:
+  using: "composite"
+  steps:
+    - name: Saving Frontend Build
+      uses: actions/upload-artifact@v3
+      with:
+        name: ts-frontend-${{ github.sha }}
+        path: ./app/build

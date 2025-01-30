@@ -1,0 +1,471 @@
+[
+  {
+    "scenarioId": 100,
+    "description": "AMM swap",
+    "liquidity": [
+      {
+        "testId": 101,
+        "description": "add liquidity first time",
+        "xReserve": "0",
+        "xScale": "9",
+        "yReserve": "0",
+        "yScale": "6",
+        "liquidityTotal": "0",
+        "add": {
+          "xAmount": "184258350462",
+          "yAmount": "2820285082"
+        },
+        "remove": {
+          "liquidity": "0"
+        },
+        "expected": {
+          "xAmount": "184258350462",
+          "yAmount": "2820285082",
+          "liquidity": "720874215"
+        }
+      }
+    ],
+    "fee": [
+      {
+        "testId": 102,
+        "description": "when percent based fee is 0.2%",
+        "feeCalculation": "Percent",
+        "amount": "100000000000",
+        "amountScale": "9",
+        "feeMinPct": "2000000000",
+        "feeMaxPct": "0",
+        "feeLastUpdate": "0",
+        "feeThisUpdate": "0",
+        "feeLastPrice": "0",
+        "feeThisPrice": "0",
+        "feeThisPriceScale": "0",
+        "feeLastEwma": "0",
+        "feeEwmaWindow": "0",
+        "feeLambda": "0",
+        "feeVelocity": "0",
+        "expected": {
+          "feeAmount": "200000000",
+          "feePercentage": "2000000000",
+          "amountExFee": "99800000000",
+          "feeLastUpdate": "0",
+          "feeLastPrice": "0",
+          "feeLastEwma": "0"
+        }
+      }
+    ],
+    "swap": [
+      {
+        "testId": 103,
+        "description": "swap xy using AMM when c = 0",
+        "x0": "184258350462",
+        "xScale": "9",
+        "y0": "2820285082",
+        "yScale": "9",
+        "c": "0",
+        "i": "9035",
+        "iScale": "6",
+        "amount": "99800000000",
+        "xy": true,
+        "expected": {
+          "deltaX": "99800000000",
+          "deltaY": "990868428"
+        }
+      }
+    ]
+  },
+  {
+    "scenarioId": 200,
+    "description": "HMM swap",
+    "liquidity": [
+      {
+        "testId": 201,
+        "description": "add liquidity first time",
+        "xReserve": "0",
+        "xScale": "9",
+        "yReserve": "0",
+        "yScale": "6",
+        "liquidityTotal": "0",
+        "add": {
+          "xAmount": "184258350462",
+          "yAmount": "2820285082"
+        },
+        "remove": {
+          "liquidity": "0"
+        },
+        "expected": {
+          "xAmount": "184258350462",
+          "yAmount": "2820285082",
+          "liquidity": "720874215"
+        }
+      }
+    ],
+    "fee": [
+      {
+        "testId": 202,
+        "description": "when percent based fee is 0.2%",
+        "feeCalculation": "Percent",
+        "amount": "20800000000",
+        "amountScale": "9",
+        "feeMinPct": "2000000000",
+        "feeMaxPct": "0",
+        "feeLastUpdate": "0",
+        "feeThisUpdate": "0",
+        "feeLastPrice": "0",
+        "feeThisPrice": "0",
+        "feeThisPriceScale": "0",
+        "feeLastEwma": "0",
+        "feeEwmaWindow": "0",
+        "feeLambda": "0",
+        "feeVelocity": "0",
+        "expected": {
+          "feeAmount": "41600000",
+          "feePercentage": "2000000000",
+          "amountExFee": "20758400000",
+          "feeLastUpdate": "0",
+          "feeLastPrice": "0",
+          "feeLastEwma": "0"
+        }
+      }
+    ],
+    "swap": [
+      {
+        "testId": 203,
+        "description": "swap xy using HMM",
+        "x0": "184258350462",
+        "xScale": "9",
+        "y0": "2820285082",
+        "yScale": "6",
+        "c": "100",
+        "i": "10670548000",
+        "iScale": "9",
+        "amount": "20758400000",
+        "xy": true,
+        "expected": {
+          "deltaX": "20758400000",
+          "deltaY": "251381243"
+        }
+      }
+    ]
+  },
+  {
+    "scenarioId": 300,
+    "description": "AMM anchor end to end",
+    "liquidity": [
+      {
+        "testId": 301,
+        "description": "add liquidity first time",
+        "xReserve": "0",
+        "xScale": "9",
+        "yReserve": "0",
+        "yScale": "6",
+        "liquidityTotal": "0",
+        "add": {
+          "xAmount": "184258350462",
+          "yAmount": "2820285082"
+        },
+        "remove": {
+          "liquidity": "0"
+        },
+        "expected": {
+          "xAmount": "184258350462",
+          "yAmount": "2820285082",
+          "liquidity": "720874215"
+        }
+      },
+      {
+        "testId": 302,
+        "description": "add liquidity second time",
+        "xReserve": "184258350462",
+        "xScale": "9",
+        "yReserve": "2820285082",
+        "yScale": "6",
+        "liquidityTotal": "720875215",
+        "add": {
+          "xAmount": "92129175231",
+          "yAmount": "1410142541"
+        },
+        "remove": {
+          "liquidity": "0"
+        },
+        "expected": {
+          "xAmount": "92129175230",
+          "yAmount": "1410142540",
+          "liquidity": "360437607"
+        }
+      },
+      {
+        "testId": 303,
+        "description": "remove liquidity first time",
+        "xReserve": "276387525693",
+        "xScale": "9",
+        "yReserve": "4230427623",
+        "yScale": "6",
+        "liquidityTotal": "1081312822",
+        "add": {
+          "xAmount": "0",
+          "yAmount": "0"
+        },
+        "remove": {
+          "liquidity": "360437607"
+        },
+        "expected": {
+          "xAmount": "92129175145",
+          "yAmount": "1410142539",
+          "liquidity": "360437607"
+        }
+      },
+      {
+        "testId": 304,
+        "description": "remove liquidity last time",
+        "xReserve": "194296261378",
+        "xScale": "9",
+        "yReserve": "2675406627",
+        "yScale": "6",
+        "liquidityTotal": "720875215",
+        "add": {
+          "xAmount": "0",
+          "yAmount": "0"
+        },
+        "remove": {
+          "liquidity": "360437607"
+        },
+        "expected": {
+          "xAmount": "97148130554",
+          "yAmount": "1337703311",
+          "liquidity": "360437607"
+        }
+      }
+    ],
+    "fee": [
+      {
+        "testId": 304,
+        "description": "when percent based fee is 0.2%",
+        "feeCalculation": "Percent",
+        "amount": "10000000000",
+        "amountScale": "9",
+        "feeMinPct": "2000000000",
+        "feeMaxPct": "0",
+        "feeLastUpdate": "0",
+        "feeThisUpdate": "0",
+        "feeLastPrice": "0",
+        "feeThisPrice": "0",
+        "feeThisPriceScale": "0",
+        "feeLastEwma": "0",
+        "feeEwmaWindow": "0",
+        "feeLambda": "0",
+        "feeVelocity": "0",
+        "expected": {
+          "feeAmount": "20000000",
+          "feePercentage": "2000000000",
+          "amountExFee": "9980000000",
+          "feeLastUpdate": "0",
+          "feeLastPrice": "0",
+          "feeLastEwma": "0"
+        }
+      },
+      {
+        "testId": 305,
+        "description": "when percent based fee is 0.2%",
+        "feeCalculation": "Percent",
+        "amount": "144906734",
+        "amountScale": "6",
+        "feeMinPct": "2000000000",
+        "feeMaxPct": "0",
+        "feeLastUpdate": "0",
+        "feeThisUpdate": "0",
+        "feeLastPrice": "0",
+        "feeThisPrice": "0",
+        "feeThisPriceScale": "0",
+        "feeLastEwma": "0",
+        "feeEwmaWindow": "0",
+        "feeLambda": "0",
+        "feeVelocity": "0",
+        "expected": {
+          "feeAmount": "289814",
+          "feePercentage": "2000000000",
+          "amountExFee": "144616920",
+          "feeLastUpdate": "0",
+          "feeLastPrice": "0",
+          "feeLastEwma": "0"
+        }
+      }
+    ],
+    "swap": [
+      {
+        "testId": 306,
+        "description": "swap xy using AMM when c = 0",
+        "x0": "184258350548",
+        "xScale": "9",
+        "y0": "2820285084",
+        "yScale": "6",
+        "c": "0",
+        "i": "0",
+        "iScale": "0",
+        "amount": "9980000000",
+        "xy": true,
+        "expected": {
+          "deltaX": "9980000000",
+          "deltaY": "144906734"
+        }
+      },
+      {
+        "testId": 307,
+        "description": "swap yx using AMM when c = 0",
+        "x0": "194258350548",
+        "xScale": "9",
+        "y0": "2675378350",
+        "yScale": "6",
+        "c": "0",
+        "i": "0",
+        "iScale": "6",
+        "amount": "144616920",
+        "xy": false,
+        "expected": {
+          "deltaX": "9962089170",
+          "deltaY": "144616920"
+        }
+      },
+      {
+        "testId": 308,
+        "description": "swap xy using third party wallet",
+        "x0": "184296261378",
+        "xScale": "9",
+        "y0": "2820285084",
+        "yScale": "6",
+        "c": "0",
+        "i": "0",
+        "iScale": "6",
+        "amount": "9980000000",
+        "xy": true,
+        "expected": {
+          "deltaX": "9980000000",
+          "deltaY": "144878457"
+        }
+      }
+    ]
+  },
+  {
+    "scenarioId": 400,
+    "description": "HMM anchor end to end",
+    "liquidity": [
+      {
+        "testId": 401,
+        "description": "add liquidity first time",
+        "xReserve": "0",
+        "xScale": "9",
+        "yReserve": "0",
+        "yScale": "6",
+        "liquidityTotal": "0",
+        "add": {
+          "xAmount": "184258350000",
+          "yAmount": "2820285082"
+        },
+        "remove": {
+          "liquidity": "0"
+        },
+        "expected": {
+          "xAmount": "184258350000",
+          "yAmount": "2820285082",
+          "liquidity": "720874215"
+        }
+      }
+    ],
+    "fee": [
+      {
+        "testId": 403,
+        "description": "when percent based fee is 0.2%",
+        "feeCalculation": "Percent",
+        "amount": "10000000000",
+        "amountScale": "9",
+        "feeMinPct": "2000000000",
+        "feeMaxPct": "0",
+        "feeLastUpdate": "0",
+        "feeThisUpdate": "0",
+        "feeLastPrice": "0",
+        "feeThisPrice": "0",
+        "feeThisPriceScale": "0",
+        "feeLastEwma": "0",
+        "feeEwmaWindow": "0",
+        "feeLambda": "0",
+        "feeVelocity": "0",
+        "expected": {
+          "feeAmount": "20000000",
+          "feePercentage": "2000000000",
+          "amountExFee": "9980000000",
+          "feeLastUpdate": "0",
+          "feeLastPrice": "0",
+          "feeLastEwma": "0"
+        }
+      }
+    ],
+    "swap": [
+      {
+        "testId": 404,
+        "description": "swap xy using HMM when c = 1.50",
+        "x0": "184258350000",
+        "xScale": "9",
+        "y0": "2820285082",
+        "yScale": "6",
+        "c": "150",
+        "i": "3800000000",
+        "iScale": "8",
+        "amount": "9980000000",
+        "xy": true,
+        "expected": {
+          "deltaX": "9980000000",
+          "deltaY": "144906735"
+        }
+      }
+    ]
+  },
+  {
+    "scenarioId": 500,
+    "description": "SOL anchor end to end",
+    "liquidity": [
+      {
+        "testId": 501,
+        "description": "add liquidity first time",
+        "xReserve": "0",
+        "xScale": "9",
+        "yReserve": "0",
+        "yScale": "6",
+        "liquidityTotal": "0",
+        "add": {
+          "xAmount": "184258350462",
+          "yAmount": "2820285082"
+        },
+        "remove": {
+          "liquidity": "0"
+        },
+        "expected": {
+          "xAmount": "184258350462",
+          "yAmount": "2820285082",
+          "liquidity": "720874215"
+        }
+      },
+      {
+        "testId": 502,
+        "description": "remove liquidity first time",
+        "xReserve": "184258350462",
+        "xScale": "9",
+        "yReserve": "2820285082",
+        "yScale": "6",
+        "liquidityTotal": "720875215",
+        "add": {
+          "xAmount": "0",
+          "yAmount": "0"
+        },
+        "remove": {
+          "liquidity": "360437607"
+        },
+        "expected": {
+          "xAmount": "92129175103",
+          "yAmount": "1410142539",
+          "liquidity": "360437607"
+        }
+      }
+    ],
+    "fee": [],
+    "swap": []
+  }
+]

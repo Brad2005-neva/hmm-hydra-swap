@@ -1,0 +1,44 @@
+name: Deploy Docs
+inputs:
+  PINATA_KEY:
+    description: "Pinata key from GitHub secrets"
+    required: true
+  PINATA_SECRET:
+    description: "Pinata secret from GitHub secrets"
+    required: true
+  FLEEK_API_KEY:
+    description: "Fleek API key"
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - id: ipfs-deploy-docs
+      name: ipfs-deploy-docs
+      uses: aquiladev/ipfs-action@v0.2.1
+      with:
+        path: ./docs/build
+        service: pinata
+        pinataKey: ${{ inputs.PINATA_KEY }}
+        pinataSecret: ${{ inputs.PINATA_SECRET }}
+
+    - name: View SDK Docs!
+      run: echo "LATEST BUILD https://hydraswap-io-app.mypinata.cloud/ipfs/${{steps.ipfs-deploy-docs.outputs.cid}}"
+      shell: bash
+
+    - name: Build fleek docs mainnet
+      id: build-fleek-docs-mainnet
+      if: ${{ github.ref  == 'refs/heads/mainnet' }}
+      run: yarn set-fleek docs
+      shell: bash
+
+    - name: Build fleek docs devnet
+      id: build-fleek-docs-devnet
+      if: ${{ github.ref == 'refs/heads/devnet' }}
+      run: yarn set-fleek docs-devnet
+      shell: bash
+
+    - id: deploy-docs-mainnet
+      if: ${{ github.ref  == 'refs/heads/mainnet' || github.ref == 'refs/heads/devnet' }}
+      uses: fleekhq/action-deploy@v1
+      with:
+        apiKey: ${{ inputs.FLEEK_API_KEY }}
