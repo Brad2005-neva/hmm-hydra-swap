@@ -1,7 +1,5 @@
 # Hydra Protocol
 
-[![cd](https://github.com/hydraswap-io/monorepo/actions/workflows/cd.yml/badge.svg)](https://github.com/hydraswap-io/monorepo/actions/workflows/cd.yml)
-
 ## Overview
 
 Hydra Protocol, known as [HydraSwap](https://www.hydraswap.io) is a Solana-based decentralized exchange that is
