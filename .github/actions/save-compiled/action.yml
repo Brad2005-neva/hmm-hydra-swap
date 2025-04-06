@@ -1,9 +1,0 @@
-name: "Saving all compiled"
-runs:
-  using: "composite"
-  steps:
-    - uses: ./.github/actions/save-snapshots
-
-    - uses: ./.github/actions/save-target-folders
-
-    - uses: ./.github/actions/save-frontend-build

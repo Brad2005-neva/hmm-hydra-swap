@@ -1,9 +1,0 @@
-name: "Loading Frontend Build"
-runs:
-  using: "composite"
-  steps:
-    - name: Loading Frontend Build
-      uses: actions/download-artifact@v3
-      with:
-        name: ts-frontend-${{ github.sha }}
-        path: ./app/build
